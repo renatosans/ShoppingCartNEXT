@@ -24,7 +24,6 @@ export default function Home() {
         <main className={styles.main} style={{'backgroundColor': 'gray'}}>
             <ul>{dadosProdutos&&
               dadosProdutos.map((produto) => (<CartItem produto={produto} shoppingCart={carrinho}></CartItem>))
-              // dadosProdutos.map((produto) => (<li key={produto.id}>{produto.nome}<img src={produto.imagem} width={'50px'} height={'50px'}></img></li>))
             }</ul>
         </main>
 

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 import CartItem from '../componentes/CartItem';
+import ProductCatalog from '../componentes/ProductCatalog';
 
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
     <div className={styles.container}>   
         <main className={styles.main} style={{'backgroundColor': 'gray'}}>
             <ul>{dadosProdutos&&
-              dadosProdutos.map((produto) => (<CartItem produto={produto} shoppingCart={carrinho}></CartItem>))
+              dadosProdutos.map((produto) => (<ProductCatalog produto={produto} shoppingCart={carrinho}></ProductCatalog>))
             }</ul>
         </main>
 

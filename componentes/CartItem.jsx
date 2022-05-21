@@ -5,7 +5,7 @@ import NumberSpinner from './NumberSpinner';
 export default function CartItem({ produto = null, shoppingCart = null }) {
 
 	function remover(){
-		// not implemented yet
+		alert('Not implemented yet');
 	}
 
 	return (

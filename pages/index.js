@@ -22,10 +22,11 @@ export default function Home() {
 
   return (
     <div className={styles.container}>   
-        <main className={styles.main} style={{'backgroundColor': 'gray'}}>
-            <ul>{dadosProdutos&&
-              dadosProdutos.map((produto) => (<ProductCatalog produto={produto} shoppingCart={carrinho}></ProductCatalog>))
-            }</ul>
+        <main className={styles.main} style={{'background-image': 'url("../images/texture2.jpg")'}}>
+            <div className={styles.grid}>{
+                dadosProdutos&&
+                dadosProdutos.map((produto) => (<ProductCatalog className={styles.card} produto={produto} shoppingCart={carrinho}></ProductCatalog>))
+            }</div>
         </main>
 
         <footer className={styles.footer}>

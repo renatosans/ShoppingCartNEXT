@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>   
-        <main className={styles.main} style={{'background-image': 'url("../images/texture2.jpg")'}}>
+        <main className={styles.main}>
             <div className={styles.grid}>{
                 dadosProdutos&&
                 dadosProdutos.map((produto) => (<ProductCatalog className={styles.card} produto={produto} shoppingCart={carrinho}></ProductCatalog>))

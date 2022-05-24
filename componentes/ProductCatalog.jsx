@@ -1,7 +1,19 @@
 
+import * as React from 'react';
+
+
 export default function ProductCatalog({ produto = null, shoppingCart = null }) {
     function addToCart(){
-        alert('Not implemented yet');
+        let cartItem = shoppingCart.produtosAdicionados.find( item => item.id === produto.id );
+        if (cartItem !== undefined){
+            const infoModal = React.createElement('InfoModal', {modalContent:'O produto já se encontra no carrinho!'});
+            infoModal.toggle();
+            return;
+        }
+
+        shoppingCart.produtosAdicionados.push(produto);
+        const infoModal = React.createElement('InfoModal', {modalContent:'Produto adicionado ao carrinho.'});
+        infoModal.toggle();
     }
 
 	return (

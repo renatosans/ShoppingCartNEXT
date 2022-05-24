@@ -18,6 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     getApiData();
+    setCarrinho({ cliente:"Cliente 1", total: 0, produtosAdicionados: [] });
   }, []);
 
   return (

@@ -25,7 +25,9 @@ export default function Home() {
         <main className={styles.main}>
             <div className={styles.grid}>{
                 dadosProdutos&&
-                dadosProdutos.map((produto) => (<ProductCatalog className={styles.card} produto={produto} shoppingCart={carrinho}></ProductCatalog>))
+                dadosProdutos.map((produto) => (<div className={styles.card}>
+                    <ProductCatalog produto={produto} shoppingCart={carrinho}></ProductCatalog>
+                </div>))
             }</div>
         </main>
         <footer className={styles.footer}>

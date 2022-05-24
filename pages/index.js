@@ -22,17 +22,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div id="container" className={styles.container}>
         <main className={styles.main}>
             <div className={styles.grid}>{
                 dadosProdutos&&
-                dadosProdutos.map((produto) => (<div className={styles.card}>
+                dadosProdutos.map((produto) => (<div className={styles.card} key={produto.id}>
                     <ProductCatalog produto={produto} shoppingCart={carrinho}></ProductCatalog>
                 </div>))
             }</div>
         </main>
         <footer className={styles.footer}>
-            <h5 className={styles.title}> Welcome to <a href="https://nextjs.org">Next.js!</a> </h5>
+            <h5 className={styles.title}> Welcome to <a href="https://nextjs.org">Next.js!</a></h5>
             Powered by {' '} <span className={styles.logo}><img src="/vercel.svg" alt="Vercel Logo" /></span>
         </footer>
     </div>

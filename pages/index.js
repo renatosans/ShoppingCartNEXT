@@ -1,4 +1,5 @@
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 import CartItem from '../componentes/CartItem';
@@ -22,7 +23,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div id="container" className={styles.container}>
+    <div className={styles.container}>
+        <header>
+          <div id="container"></div>
+        </header>
         <main className={styles.main}>
             <div className={styles.grid}>{
                 dadosProdutos&&

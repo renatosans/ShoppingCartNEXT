@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
 
-export default function InfoModal(modalContent) {
-    const [show, setShow] = useState(false);
+export default function InfoModal({modalContent = ''}) {
+    const [show, setShow] = useState(true);
     const toggle = () => setShow(!show);
 
     return  <>

@@ -1,4 +1,7 @@
 
+import React from 'react';
+import ReactDom from 'react-dom';
+import InfoModal from './InfoModal';
 import NumberSpinner from './NumberSpinner';
 
 
@@ -13,7 +16,10 @@ export default function CartItem({ produto = null, shoppingCart = null }) {
 		if (shoppingCart.produtosAdicionados.find( item => item.id === produto.id )) {
 			let carrinho = shoppingCart.produtosAdicionados;
 			shoppingCart.produtosAdicionados = carrinho.filter( item => item.id !== produto.id );
-			alert('O produto "' + produto.nome + '" foi removido do carrinho.');
+
+			const root = ReactDom.createRoot(document.getElementById('container'));
+			const infoModal = React.createElement(InfoModal, {modalContent: 'O produto foi removido do carrinho.'}, null);
+			root.render(infoModal);	
 		}
 	}
 

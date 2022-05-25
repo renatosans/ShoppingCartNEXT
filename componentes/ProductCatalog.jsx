@@ -10,15 +10,14 @@ export default function ProductCatalog({ produto = null, shoppingCart = null }) 
 
         let cartItem = shoppingCart.produtosAdicionados.find( item => item.id === produto.id );
         if (cartItem !== undefined){
-            alert('O produto já se encontra no carrinho!');
+            const infoModal = React.createElement(InfoModal, {modalContent: 'O produto já se encontra no carrinho!'}, null);
+            root.render(infoModal);
             return;
         }
 
         shoppingCart.produtosAdicionados.push(produto);
-        alert('Produto adicionado ao carrinho.');
-        // const infoModal = React.createElement(InfoModal, {modalContent:'Produto adicionado ao carrinho.'}, null);
-        // root.render(infoModal);
-        // infoModal.toggle();
+        const infoModal = React.createElement(InfoModal, {modalContent:'Produto adicionado ao carrinho.'}, null);
+        root.render(infoModal);
     }
 
 	return (

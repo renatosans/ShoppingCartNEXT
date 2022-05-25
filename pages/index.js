@@ -1,5 +1,6 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Offcanvas } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 import CartItem from '../componentes/CartItem';
@@ -9,6 +10,8 @@ import ProductCatalog from '../componentes/ProductCatalog';
 export default function Home() {
   const [dadosProdutos, setDadosProdutos] = useState();
   const [carrinho, setCarrinho] = useState();
+  const [show, setShow] = useState(false);
+  const toggle = () => setShow(!show);
 
   const getApiData = async () => {
     const response = await fetch("mock_data/listaProdutos.json")
@@ -26,6 +29,16 @@ export default function Home() {
     <div className={styles.container}>
         <header>
           <div id="container"></div>
+          <Button variant="primary" onClick={toggle}>Carrinho</Button>
+          <Offcanvas show={show} placement={'end'} onHide={toggle}>
+              <Offcanvas.Header closeButton>
+                  <Offcanvas.Title>Cart</Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                  Some text as placeholder. In real life you can have the elements you
+                  have chosen. Like, text, images, lists, etc.
+              </Offcanvas.Body>
+          </Offcanvas>
         </header>
         <main className={styles.main}>
             <div className={styles.grid}>{

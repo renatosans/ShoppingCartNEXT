@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
 
-export default function InfoModal() {
-    const [show, setShow] = useState(true);
+export default function InfoModal(modalContent) {
+    const [show, setShow] = useState(false);
     const toggle = () => setShow(!show);
 
     return  <>
@@ -12,7 +12,7 @@ export default function InfoModal() {
                 <Modal.Header closeButton>
                     <Modal.Title>Informação</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>modalContent</Modal.Body>
+                <Modal.Body>{modalContent}</Modal.Body>
                 <br/><br/>
                 <Modal.Footer>
                     <Button variant="primary" onClick={toggle}>Close</Button>

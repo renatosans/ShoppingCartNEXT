@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ReactDom from 'react-dom/client';
+import ReactDom from 'react-dom';
 import InfoModal from './InfoModal';
 
 
@@ -10,15 +10,14 @@ export default function ProductCatalog({ produto = null, shoppingCart = null }) 
 
         let cartItem = shoppingCart.produtosAdicionados.find( item => item.id === produto.id );
         if (cartItem !== undefined){
-            const infoModal = React.createElement(InfoModal); //{modalContent:'O produto já se encontra no carrinho!'}, null);
-            root.render(infoModal);
-            // infoModal.toggle();
+            alert('O produto já se encontra no carrinho!');
             return;
         }
 
         shoppingCart.produtosAdicionados.push(produto);
-        const infoModal = React.createElement(InfoModal); //{modalContent:'Produto adicionado ao carrinho.'}, null);
-        root.render(infoModal);
+        alert('Produto adicionado ao carrinho.');
+        // const infoModal = React.createElement(InfoModal, {modalContent:'Produto adicionado ao carrinho.'}, null);
+        // root.render(infoModal);
         // infoModal.toggle();
     }
 

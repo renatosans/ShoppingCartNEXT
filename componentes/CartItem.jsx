@@ -5,7 +5,16 @@ import NumberSpinner from './NumberSpinner';
 export default function CartItem({ produto = null, shoppingCart = null }) {
 
 	function remover(){
-		alert('Not implemented yet');
+		if (shoppingCart == null) {
+			alert('Falha ao abrir carrinho de compras');
+			return;
+		}
+
+		if (shoppingCart.produtosAdicionados.find( item => item.id === produto.id )) {
+			let carrinho = shoppingCart.produtosAdicionados;
+			shoppingCart.produtosAdicionados = carrinho.filter( item => item.id !== produto.id );
+			alert('O produto "' + produto.nome + '" foi removido do carrinho.');
+		}
 	}
 
 	return (

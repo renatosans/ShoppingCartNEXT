@@ -34,9 +34,10 @@ export default function Home() {
               <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Cart</Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body>
-                  Some text as placeholder. In real life you can have the elements you
-                  have chosen. Like, text, images, lists, etc.
+              <Offcanvas.Body>{
+                  carrinho&&
+                  carrinho.produtosAdicionados.map((produto) => (<CartItem produto={produto} shoppingCart={carrinho}></CartItem>))
+                  }
               </Offcanvas.Body>
           </Offcanvas>
         </header>

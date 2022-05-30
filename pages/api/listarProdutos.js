@@ -6,7 +6,7 @@ var mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'p@ssw0rd',
-    database: 'portal_aluno'
+    database: 'commercedb'
 });
 
 export default function handler(req, res) {
@@ -20,7 +20,7 @@ export default function handler(req, res) {
         }
     );
     
-    mysqlConnection.query('SELECT * FROM professor', (err, rows, fields) => {
+    mysqlConnection.query('SELECT * FROM produto', (err, rows, fields) => {
         if (!err) {
             res.send(rows);
         } else {

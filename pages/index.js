@@ -14,7 +14,7 @@ export default function Home() {
   const toggle = () => setShow(!show);
 
   const getApiData = async () => {
-    const response = await fetch("mock_data/listaProdutos.json")
+    const response = await fetch("api/listarProdutos")
     .then((response) => response.json());
 
     setDadosProdutos(response);

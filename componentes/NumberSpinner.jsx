@@ -48,13 +48,13 @@ export default function NumberSpinner() {
 
                 <div className='input-spinner'>
                     <div id="decrease">
-                        <button className='svgicon' style={{'background-image': 'url("icons/circle_minus.svg")'}} onClick={decrease} />
+                        <button className='svgicon' style={{'backgroundImage': 'url("icons/circle_minus.svg")'}} onClick={decrease} />
                     </div>
                     <div className='count'>
-                        <span style={{'font-size': '20px'}}>{ currentCount }</span>
+                        <span style={{'fontSize': '20px'}}>{ currentCount }</span>
                     </div>
                     <div id="increase">
-                        <button className='svgicon' style={{'background-image': 'url("icons/circle_plus.svg")'}} onClick={increase} />
+                        <button className='svgicon' style={{'backgroundImage': 'url("icons/circle_plus.svg")'}} onClick={increase} />
                     </div>
                 </div>
 		    </>;

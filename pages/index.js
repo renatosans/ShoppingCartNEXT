@@ -40,10 +40,10 @@ export default function Home() {
           <Button variant="primary" onClick={toggle}>Carrinho</Button>
           <Offcanvas show={show} placement={'end'} onHide={toggle}>
               <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>Carrinho { carrinho&&carrinho.cliente }</Offcanvas.Title>
+                  <Offcanvas.Title>Carrinho { carrinho && carrinho.cliente }</Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>{
-                  carrinho&&
+                  carrinho &&
                   carrinho.produtosAdicionados.map((produto) => (<CartItem produto={produto} shoppingCart={carrinho}></CartItem>))
                   }
               </Offcanvas.Body>
@@ -51,7 +51,7 @@ export default function Home() {
         </header>
         <main className={styles.main}>
             <div className={styles.grid}>{
-                dadosProdutos&&
+                dadosProdutos &&
                 dadosProdutos.map((produto) => (<div className={styles.card} key={produto.id}>
                     <ProductCatalog produto={produto} shoppingCart={carrinho}></ProductCatalog>
                 </div>))

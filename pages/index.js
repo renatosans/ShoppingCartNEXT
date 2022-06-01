@@ -10,20 +10,28 @@ import ProductCatalog from '../componentes/ProductCatalog';
 export default function Home() {
   const [dadosProdutos, setDadosProdutos] = useState();
   const [carrinho, setCarrinho] = useState();
-  const [show, setShow] = useState(false);
-  const toggle = () => setShow(!show);
 
-  const getApiData = async () => {
+  const getDadosProdutos = async () => {
     const response = await fetch("api/listarProdutos")
     .then((response) => response.json());
 
     setDadosProdutos(response);
   };
 
+  const getCarrinho = async () => {
+    const response = await fetch("api/carrinho")
+    .then((response) => response.json());
+
+    setCarrinho(response);
+  };
+
   useEffect(() => {
-    getApiData();
-    setCarrinho({ cliente:"Cliente 1", total: 0, produtosAdicionados: [] });
+    getDadosProdutos();
+    getCarrinho();
   }, []);
+
+  const [show, setShow] = useState(false);
+  const toggle = () => setShow(!show);
 
   return (
     <div className={styles.container}>
@@ -32,7 +40,7 @@ export default function Home() {
           <Button variant="primary" onClick={toggle}>Carrinho</Button>
           <Offcanvas show={show} placement={'end'} onHide={toggle}>
               <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>Cart</Offcanvas.Title>
+                  <Offcanvas.Title>Carrinho { carrinho&&carrinho.cliente }</Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>{
                   carrinho&&

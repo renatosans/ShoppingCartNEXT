@@ -19,7 +19,7 @@ export default function CartItem({ produto = null, shoppingCart = null }) {
 
 			const root = ReactDom.createRoot(document.getElementById('container'));
 			const infoModal = React.createElement(InfoModal, {modalContent: 'O produto foi removido do carrinho.'}, null);
-			root.render(infoModal);	
+			root.render(infoModal);
 		}
 	}
 

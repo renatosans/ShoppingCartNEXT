@@ -19,7 +19,7 @@ export default function handler(req, res) {
             }
         }
     );
-    
+
     mysqlConnection.query('SELECT * FROM produto', (err, rows, fields) => {
         if (!err) {
             res.send(rows);

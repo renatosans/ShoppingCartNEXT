@@ -18,7 +18,7 @@ export default function CartItem({ produto = null, shoppingCart = null }) {
 			shoppingCart.produtosAdicionados = carrinho.filter( item => item.id !== produto.id );
 
 			const root = ReactDom.createRoot(document.getElementById('container'));
-			const infoModal = React.createElement(InfoModal, {modalContent: 'O produto foi removido do carrinho.'}, null);
+			const infoModal = React.createElement(InfoModal, null, 'O produto foi removido do carrinho.');
 			root.render(infoModal);
 		}
 	}

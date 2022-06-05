@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import InfoModal from './InfoModal';
+import NumberSpinner from './NumberSpinner';
 
 
 export default function ProductCatalog({ produto = null, shoppingCart = null }) {
@@ -10,13 +11,13 @@ export default function ProductCatalog({ produto = null, shoppingCart = null }) 
 
         let cartItem = shoppingCart.produtosAdicionados.find( item => item.id === produto.id );
         if (cartItem !== undefined){
-            const infoModal = React.createElement(InfoModal, {modalContent: 'O produto já se encontra no carrinho!'}, null);
+            const infoModal = React.createElement(InfoModal, null, 'O produto já se encontra no carrinho!');
             root.render(infoModal);
             return;
         }
 
         shoppingCart.produtosAdicionados.push(produto);
-        const infoModal = React.createElement(InfoModal, {modalContent:'Produto adicionado ao carrinho.'}, null);
+        const infoModal = React.createElement(InfoModal, null, React.createElement(NumberSpinner, null, null));
         root.render(infoModal);
     }
 

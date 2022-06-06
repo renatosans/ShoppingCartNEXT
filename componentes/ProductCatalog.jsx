@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import InfoModal from './InfoModal';
-import NumberSpinner from './NumberSpinner';
+import CartItem from './CartItem';
 
 
 export default function ProductCatalog({ produto = null, shoppingCart = null }) {
@@ -17,7 +17,7 @@ export default function ProductCatalog({ produto = null, shoppingCart = null }) 
         }
 
         shoppingCart.produtosAdicionados.push(produto);
-        const infoModal = React.createElement(InfoModal, null, React.createElement(NumberSpinner, null, null));
+        const infoModal = React.createElement(InfoModal, null, React.createElement(CartItem, {produto: produto}, null));
         root.render(infoModal);
     }
 

@@ -58,8 +58,7 @@ export default function Home() {
             }</div>
         </main>
         <footer className={styles.footer}>
-            <h5 className={styles.title}> Welcome to <a href="https://nextjs.org">Next.js!</a></h5>
-            Powered by {' '} <span className={styles.logo}><img src="/vercel.svg" alt="Vercel Logo" /></span>
+            <h5>Projeto desenvolvido utilizando NEXT.js</h5>
         </footer>
     </div>
   )

@@ -44,7 +44,7 @@ export default function Home() {
               </Offcanvas.Header>
               <Offcanvas.Body>{
                   carrinho &&
-                  carrinho.produtosAdicionados.map((produto) => (<CartItem produto={produto} shoppingCart={carrinho}></CartItem>))
+                  carrinho.produtosAdicionados.map((produto) => (<CartItem key={produto.id} produto={produto} shoppingCart={carrinho}></CartItem>))
                   }
               </Offcanvas.Body>
           </Offcanvas>

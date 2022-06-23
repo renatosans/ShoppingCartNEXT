@@ -1,5 +1,7 @@
 
 import mysql from "mysql2";
+import { pool } from "../../config/connection";
+
 
 // configura os parametros de conexão
 var mysqlConnection = mysql.createConnection({

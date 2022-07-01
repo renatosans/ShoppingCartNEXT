@@ -15,7 +15,7 @@ export default function InfoModal(props) {
                     <span>{props.children}</span>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={toggle}>Close</Button>
+                    <Button variant="outlined" onClick={toggle}>Close</Button>
                 </DialogActions>
             </Dialog>
 		</>;

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
-import { Button, Drawer } from '@mui/material';
+import { Drawer, Typography } from '@mui/material';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import CartItem from '../componentes/CartItem';
 import ProductCatalog from '../componentes/ProductCatalog';
@@ -37,14 +37,16 @@ export default function Home() {
     <div className={styles.container}>
         <header>
           <div id="container"></div>
-          <ShoppingCart onClick={toggle} ></ShoppingCart>
+          <ShoppingCart style={{color: 'blue'}} onClick={toggle}></ShoppingCart>
           <Drawer open={show} anchor={'right'} onClose={toggle}>
-            <h1>Carrinho { carrinho && carrinho.cliente }</h1>
-            <p>{
+            <Typography variant="h4" style={{padding: '20px'}}>
+              Carrinho { carrinho && carrinho.cliente }
+            </Typography>
+            <div style={{padding: '20px'}}>{
                   carrinho &&
                   carrinho.produtosAdicionados.map((produto) => (<CartItem key={produto.id} produto={produto} shoppingCart={carrinho}></CartItem>))
               }
-            </p>
+            </div>
           </Drawer>
         </header>
         <main className={styles.main}>

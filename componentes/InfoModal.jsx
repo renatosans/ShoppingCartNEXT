@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
-import { Button, Modal } from '@mui/material';
+import { Button } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 
 
 export default function InfoModal(props) {
@@ -8,15 +9,14 @@ export default function InfoModal(props) {
     const toggle = () => setShow(!show);
 
     return  <>
-            <Modal show={show} onHide={toggle}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Informação</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{props.children}</Modal.Body>
-                <br/><br/>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={toggle}>Close</Button>
-                </Modal.Footer>
-            </Modal>
+            <Dialog open={show} onClose={toggle}>
+                <DialogTitle>Informação</DialogTitle>
+                <DialogContent>
+                    <span>{props.children}</span>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={toggle}>Close</Button>
+                </DialogActions>
+            </Dialog>
 		</>;
 }

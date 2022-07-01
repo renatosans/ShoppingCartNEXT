@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 import { Button, Drawer } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCartIcon';
+import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import CartItem from '../componentes/CartItem';
 import ProductCatalog from '../componentes/ProductCatalog';
 
@@ -37,16 +37,14 @@ export default function Home() {
     <div className={styles.container}>
         <header>
           <div id="container"></div>
-          <Button variant="primary" onClick={toggle}>Carrinho</Button>
+          <ShoppingCart onClick={toggle} ></ShoppingCart>
           <Drawer open={show} anchor={'right'} onClose={toggle}>
-              <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>Carrinho { carrinho && carrinho.cliente }</Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>{
+            <h1>Carrinho { carrinho && carrinho.cliente }</h1>
+            <p>{
                   carrinho &&
                   carrinho.produtosAdicionados.map((produto) => (<CartItem key={produto.id} produto={produto} shoppingCart={carrinho}></CartItem>))
-                  }
-              </Offcanvas.Body>
+              }
+            </p>
           </Drawer>
         </header>
         <main className={styles.main}>

@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal } from '@mui/material';
 
 
 export default function InfoModal(props) {

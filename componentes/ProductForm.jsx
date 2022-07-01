@@ -51,6 +51,7 @@ export const ProductForm = () => {
 		}
 
 		router.push("/");
+		toast.success('Produto salvo com sucesso');
 	};
 
 	const onChange = (e) => {
@@ -121,9 +122,8 @@ export const ProductForm = () => {
 						onChange={onChange}
 					/>
 				</div>
-				<button type="submit"
-					className="bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded focus:outline-none focus:shadow-outline text-white font-bold">
-					{router.query.id ? "Actualizar producto" : "Agregar producto"}
+				<button type="submit" className="bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded focus:outline-none focus:shadow-outline text-white font-bold">
+					Salvar
 				</button>
 			</form>
 		</div>

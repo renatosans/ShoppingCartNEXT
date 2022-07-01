@@ -1,8 +1,8 @@
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Offcanvas } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
+import { Button, Drawer } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCartIcon';
 import CartItem from '../componentes/CartItem';
 import ProductCatalog from '../componentes/ProductCatalog';
 
@@ -38,7 +38,7 @@ export default function Home() {
         <header>
           <div id="container"></div>
           <Button variant="primary" onClick={toggle}>Carrinho</Button>
-          <Offcanvas show={show} placement={'end'} onHide={toggle}>
+          <Drawer open={show} anchor={'right'} onClose={toggle}>
               <Offcanvas.Header closeButton>
                   <Offcanvas.Title>Carrinho { carrinho && carrinho.cliente }</Offcanvas.Title>
               </Offcanvas.Header>
@@ -47,7 +47,7 @@ export default function Home() {
                   carrinho.produtosAdicionados.map((produto) => (<CartItem key={produto.id} produto={produto} shoppingCart={carrinho}></CartItem>))
                   }
               </Offcanvas.Body>
-          </Offcanvas>
+          </Drawer>
         </header>
         <main className={styles.main}>
             <div className={styles.grid}>{

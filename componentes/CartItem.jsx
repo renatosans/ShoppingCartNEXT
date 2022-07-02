@@ -1,11 +1,22 @@
-
 import React from 'react';
 import ReactDom from 'react-dom';
 import InfoModal from './InfoModal';
 import NumberSpinner from './NumberSpinner';
+import ConfirmationDialog from './ConfirmationDialog';
 
 
 export default function CartItem({ produto = null, shoppingCart = null }) {
+	const root = ReactDom.createRoot(document.getElementById('container'));
+
+	const handleResult = (result) => {
+		if (result) {
+			let carrinho = shoppingCart.produtosAdicionados;
+			shoppingCart.produtosAdicionados = carrinho.filter( item => item.id !== produto.id );
+	
+			const infoModal = React.createElement(InfoModal, null, 'O produto foi removido do carrinho.');
+			root.render(infoModal);
+		}
+	}
 
 	function remover(){
 		if (shoppingCart == null) {
@@ -13,14 +24,9 @@ export default function CartItem({ produto = null, shoppingCart = null }) {
 			return;
 		}
 
-		if (shoppingCart.produtosAdicionados.find( item => item.id === produto.id )) {
-			let carrinho = shoppingCart.produtosAdicionados;
-			shoppingCart.produtosAdicionados = carrinho.filter( item => item.id !== produto.id );
-
-			const root = ReactDom.createRoot(document.getElementById('container'));
-			const infoModal = React.createElement(InfoModal, null, 'O produto foi removido do carrinho.');
-			root.render(infoModal);
-		}
+		const message = 'Deseja realmente excluir o item ?';
+        const confirmationDialog = React.createElement(ConfirmationDialog, {message, handleResult}, null);
+		root.render(confirmationDialog);
 	}
 
 	return (

@@ -2,7 +2,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import InfoModal from './InfoModal';
-import CartItem from './CartItem';
 
 
 export default function ProductCatalog({ produto = null, shoppingCart = null }) {
@@ -17,7 +16,7 @@ export default function ProductCatalog({ produto = null, shoppingCart = null }) 
         }
 
         shoppingCart.produtosAdicionados.push(produto);
-        const infoModal = React.createElement(InfoModal, null, React.createElement(CartItem, {produto: produto}, null));
+        const infoModal = React.createElement(InfoModal, null, 'O produto ' + produto.nome + ' foi adicionado ao carrinho');
         root.render(infoModal);
     }
 

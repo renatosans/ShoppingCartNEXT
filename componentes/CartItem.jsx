@@ -6,9 +6,9 @@ import ConfirmationDialog from './ConfirmationDialog';
 
 
 export default function CartItem({ produto = null, shoppingCart = null }) {
-	let root = ReactDom.createRoot(document.getElementById('container'));
-
 	const handleResult = (result) => {
+        const root = ReactDom.createRoot(document.getElementById('container'));
+
 		if (result) {
 			let carrinho = shoppingCart.produtosAdicionados;
 			shoppingCart.produtosAdicionados = carrinho.filter( item => item.id !== produto.id );
@@ -17,13 +17,11 @@ export default function CartItem({ produto = null, shoppingCart = null }) {
 			root.render(infoModal);
 			return;
 		}
-
-		// limpa e reinicializa o container
-		ReactDom.unmountComponentAtNode(document.getElementById('container'));
-		root = ReactDom.createRoot(document.getElementById('container'));
 	}
 
 	function remover(){
+        const root = ReactDom.createRoot(document.getElementById('container'));
+
 		if (shoppingCart == null) {
 			alert('Falha ao abrir carrinho de compras');
 			return;

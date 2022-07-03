@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 import { Drawer, Typography } from '@mui/material';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
-import CartItem from '../componentes/CartItem';
+import { CartItemList } from '../componentes/CartItemList';
 import ProductCatalog from '../componentes/ProductCatalog';
 
 
@@ -42,11 +42,7 @@ export default function Home() {
             <Typography variant="h4" style={{padding: '20px'}}>
               Carrinho { carrinho && carrinho.cliente }
             </Typography>
-            <div style={{padding: '20px'}}>{
-                  carrinho &&
-                  carrinho.produtosAdicionados.map((produto) => (<CartItem key={produto.id} produto={produto} shoppingCart={carrinho}></CartItem>))
-              }
-            </div>
+            <CartItemList carrinho={carrinho}></CartItemList>
           </Drawer>
         </header>
         <main className={styles.main}>

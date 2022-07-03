@@ -5,14 +5,17 @@ import NumberSpinner from './NumberSpinner';
 import ConfirmationDialog from './ConfirmationDialog';
 
 
-export default function CartItem({ produto = null, shoppingCart = null }) {
+export default function CartItem({ produto = null, shoppingCart = null, parentRef }) {
 	const handleResult = (result) => {
         const root = ReactDom.createRoot(document.getElementById('container'));
 
 		if (result) {
 			let carrinho = shoppingCart.produtosAdicionados;
 			shoppingCart.produtosAdicionados = carrinho.filter( item => item.id !== produto.id );
-	
+
+			// Refresh do carrinho
+			parentRef.getItems();
+
 			const infoModal = React.createElement(InfoModal, null, 'O produto foi removido do carrinho.');
 			root.render(infoModal);
 			return;

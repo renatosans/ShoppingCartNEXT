@@ -6,7 +6,7 @@ import ConfirmationDialog from './ConfirmationDialog';
 
 
 export default function CartItem({ produto = null, shoppingCart = null }) {
-	const root = ReactDom.createRoot(document.getElementById('container'));
+	let root = ReactDom.createRoot(document.getElementById('container'));
 
 	const handleResult = (result) => {
 		if (result) {
@@ -15,7 +15,12 @@ export default function CartItem({ produto = null, shoppingCart = null }) {
 	
 			const infoModal = React.createElement(InfoModal, null, 'O produto foi removido do carrinho.');
 			root.render(infoModal);
+			return;
 		}
+
+		// limpa e reinicializa o container
+		ReactDom.unmountComponentAtNode(document.getElementById('container'));
+		root = ReactDom.createRoot(document.getElementById('container'));
 	}
 
 	function remover(){

@@ -57,7 +57,7 @@ export default function CartItem({ produto = null, shoppingCart = null, parentRe
 			`}</style>
 
 			<div className='cartItem'>
-				<img className='itemImage' src={produto.imagem} alt={produto.nome} />
+				<img className='itemImage' src={"data:" + produto.formatoImagem + ", " + produto.foto} alt={produto.nome} />
 				<fieldset className='vertical-container' style={{'border': '0'}}>
 					<span className='itemText'>{produto.descricao}</span>
 					<span>Preço: R$ {produto.preco}</span>

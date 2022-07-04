@@ -12,18 +12,18 @@ export default function Home() {
   const [carrinho, setCarrinho] = useState();
 
   const getDadosProdutos = async () => {
-    const response = await fetch("api/listarProdutos")
+    const response = await fetch("mock_data/listarProdutos")
     .then((response) => response.json());
 
     setDadosProdutos(response);
-  };
+  }
 
   const getCarrinho = async () => {
-    const response = await fetch("api/carrinho")
+    const response = await fetch("mock_data/carrinho")
     .then((response) => response.json());
 
     setCarrinho(response);
-  };
+  }
 
   useEffect(() => {
     getDadosProdutos();

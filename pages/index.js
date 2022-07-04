@@ -11,7 +11,7 @@ export default function Home() {
   const [carrinho, setCarrinho] = useState();
 
   const getDadosProdutos = async () => {
-    const response = await fetch("api/produtos/listar")
+    const response = await fetch("api/produtos")
     .then((response) => response.json());
 
     setDadosProdutos(response);

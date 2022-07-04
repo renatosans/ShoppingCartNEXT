@@ -12,14 +12,14 @@ export default function Home() {
   const [carrinho, setCarrinho] = useState();
 
   const getDadosProdutos = async () => {
-    const response = await fetch("mock_data/listarProdutos")
+    const response = await fetch("mock_data/produtos.json")
     .then((response) => response.json());
 
     setDadosProdutos(response);
   }
 
   const getCarrinho = async () => {
-    const response = await fetch("mock_data/carrinho")
+    const response = await fetch("mock_data/carrinho.json")
     .then((response) => response.json());
 
     setCarrinho(response);

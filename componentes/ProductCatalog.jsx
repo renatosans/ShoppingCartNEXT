@@ -36,7 +36,7 @@ export default function ProductCatalog({ produto = null, shoppingCart = null }) 
                 }
             
                 .productImage {
-                    height: 250px;
+                    height: 290px;
                 }
             
                 .roundIcon {
@@ -64,9 +64,9 @@ export default function ProductCatalog({ produto = null, shoppingCart = null }) 
 
             <div className='vertical-container rounded-corners'>
                 <img className='productImage' src={"data:" + produto.formatoImagem + ", " + produto.foto} alt={produto.nome}></img>
-                <span> {produto.nome} </span> <br/>
-                <span> {produto.descricao} </span> <br/>
-                <span> Preço: R$ {produto.preco} </span> <br/>
+                <h2> {produto.nome} </h2>
+                <p> {produto.descricao} </p>
+                <p> Preço: R$ {produto.preco} </p>
                 <button className='roundIcon addToCart' onClick={addToCart} />
             </div>
 		</>

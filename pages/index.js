@@ -53,7 +53,7 @@ export default function Home() {
             }</div>
         </main>
         <footer className={styles.footer}>
-            <h5>Projeto desenvolvido utilizando NEXT.js</h5>
+            <h5 className='text-lg font-bold' >Projeto desenvolvido utilizando NEXT.js</h5>
         </footer>
     </div>
   )

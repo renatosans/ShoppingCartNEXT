@@ -51,9 +51,10 @@ export default function CartItem({ produto = null, shoppingCart = null, parentRe
 				}
 			
 				.vertical-container {
-					display: flex;
-					flex-direction: column;
-				}			
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+				}
 			`}</style>
 
 			<div className='cartItem'>
@@ -62,7 +63,7 @@ export default function CartItem({ produto = null, shoppingCart = null, parentRe
 					<span className='itemText'>{produto.descricao}</span>
 					<span>Preço: R$ {produto.preco}</span>
 					<br/>
-					<button style={{'width': '100px'}} onClick={remover}><b>Remover</b></button>
+					<button className='w-20 border-solid border border-blue-500 rounded' onClick={remover}>Remover</button>
 					<NumberSpinner></NumberSpinner>
 				</fieldset>
 			</div>

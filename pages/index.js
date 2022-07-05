@@ -38,9 +38,7 @@ export default function Home() {
           <div id="container"></div>
           <ShoppingCart style={{color: 'blue'}} onClick={toggle}></ShoppingCart>
           <Drawer open={show} anchor={'right'} onClose={toggle}>
-            <Typography variant="h4" style={{padding: '20px'}}>
-              Carrinho { carrinho && carrinho.cliente }
-            </Typography>
+            <h4 className='p-8 text-2xl font-bold' >Carrinho { carrinho && carrinho.cliente }</h4>
             <CartItemList carrinho={carrinho}></CartItemList>
           </Drawer>
         </header>

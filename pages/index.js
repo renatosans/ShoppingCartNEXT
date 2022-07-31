@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
-import { Drawer, Typography } from '@mui/material';
+import { Drawer } from '@mui/material';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import { CartItemList } from '../componentes/CartItemList';
 import ProductCatalog from '../componentes/ProductCatalog';

@@ -1,4 +1,4 @@
-import { pool } from "../../../config/connection";
+import { prisma } from '../../../config/connection'
 
 
 export default async function handler(req, res) {
@@ -16,39 +16,21 @@ export default async function handler(req, res) {
 }
 
 const getProduct = async (req, res) => {
-	const { id } = req.query;
-	const [result] = await pool.query("SELECT * FROM produto WHERE id = ?", [id]);
-	res.status(200).json(result[0]);
-};
+	const { id } = req.params || req.query;
+
+	prisma.produto.findUnique({ where: { id: Number(id) } })
+	.then((produto) => res.send(produto))
+	.catch((error) => res.send("Error: " + error.message))
+}
 
 const deleteProduct = async (req, res) => {
-	try {
-		const { id } = req.query;
-		await pool.query("DELETE FROM produto WHERE id = ?", [id]);
-		res.status(204).json();
-	} catch (error) {
-		return res.status(500).json({
-			message: error.message,
-		});
-	}
-};
+	const { id } = req.query;
+
+	// prisma.produto.delete
+}
 
 const updateProduct = async (req, res) => {
 	const { id } = req.query;
-	const { nome, preco, descricao, foto } = req.body;
 
-	try {
-		await pool.query("UPDATE produto SET nome = ?, preco = ?, descricao = ?, foto = ?  WHERE id = ?", [
-			nome,
-			preco,
-			descricao,
-			foto,
-			id,
-		]);
-		res.status(204).json();
-	} catch (error) {
-		return res.status(500).json({
-			message: error.message,
-		});
-	}
-};
+	// prisma.produto.update
+}

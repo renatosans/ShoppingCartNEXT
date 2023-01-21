@@ -2,16 +2,16 @@ import { PrismaClient } from '@prisma/client';
 
 
 const host     = 'localhost'
-const port     = 1433
-const username = 'sa'
+const port     = 5432
+const username = 'postgres'
 const password = 'p@ssw0rd'
 const database = 'commercedb'
 const ssl      = false
 const setSSL   = 'sslaccept=strict&sslmode=require'
 
 
-// DATABASE_URL="sqlserver://localhost:1433;databaseName=commercedb;user=sa;password=p@ssw0rd;trustServerCertificate=true;"
-let url = `sqlserver://${host}:${port};databaseName=${database};user=${username};password=${password};trustServerCertificate=true;`;
+// DATABASE_URL="postgresql://postgres:p@ssw0rd@localhost:5432/commercedb"
+let url = `postgresql://${username}:${password}@${host}:${port}/${database}`;
 if (ssl) {
     url = url + `?${setSSL}`;
 }

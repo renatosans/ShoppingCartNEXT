@@ -3,36 +3,36 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model categoria {
-  id   Int    @id @default(autoincrement())
-  nome String @db.VarChar(120)
+  id    String    @id @map("_id") @default(auto()) @db.ObjectId
+  nome  String    @db.String
 }
 
 model fornecedor {
-  id    Int     @id @default(autoincrement())
-  cnpj  String  @db.VarChar(45)
-  nome  String  @db.VarChar(250)
-  email String? @db.VarChar(120)
+  id    String    @id @map("_id") @default(auto()) @db.ObjectId
+  cnpj  String    @db.String
+  nome  String    @db.String
+  email String?   @db.String
 }
 
 model produto {
-  id            Int       @id @default(autoincrement())
-  nome          String    @db.VarChar(255)
-  preco         Decimal   @db.Decimal(10, 2)
+  id            String    @id @map("_id") @default(auto()) @db.ObjectId
+  nome          String    @db.String
+  preco         Float     @db.Double
   categoria     Int?
   fornecedor    Int?
-  descricao     String?   @db.VarChar(255)
-  foto          String?   @db.Text
-  formatoImagem String?   @db.VarChar(45)
+  descricao     String?   @db.String
+  foto          String?   @db.String
+  formatoImagem String?   @db.String
   dataCriacao   DateTime? @default(now())
 }
 
 model unidademedida {
-  id        Int     @id @default(autoincrement())
-  descricao String  @db.VarChar(65)
-  sigla     String? @db.VarChar(10)
+  id        String    @id @map("_id") @default(auto()) @db.ObjectId
+  descricao String    @db.String
+  sigla     String?   @db.String
 }

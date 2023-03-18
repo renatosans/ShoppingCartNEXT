@@ -1,4 +1,4 @@
-# ShoppingCart using Next.js, Prisma and PostgreSQL
+# ShoppingCart using Next.js, Prisma and MongoDB
 
 ## Screenshot
 ![screenshot](public/images/screenshot.jpg)

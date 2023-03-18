@@ -20,7 +20,7 @@ const getProduct = async (req, res) => {
 
 	prisma.produto.findUnique({ where: { id: Number(id) } })
 	.then((produto) => res.send(produto))
-	.catch((error) => res.send("Error: " + error.message))
+	.catch((error) => res.status(500).send("Error: " + error.message))
 }
 
 const deleteProduct = async (req, res) => {

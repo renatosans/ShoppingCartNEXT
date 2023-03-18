@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -26,13 +25,15 @@ export const ProductForm = ({ parentRef }) => {
 
 		try {
 			if (!router.query.id) {
-				await axios.post("/api/produtos", {
-					...product,
-				});
+				await fetch(`/api/produtos`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json', },
+					body: JSON.stringify(product), })
 			} else {
-				await axios.put("/api/produtos/" + router.query.id, {
-					...product,
-				});
+				await fetch(`/api/produtos/${router.query.id}`, {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json', },
+					body: JSON.stringify(product), })
 			}
 		} catch (error) {
 			toast.error(error.message, notification.options);
@@ -61,17 +62,6 @@ export const ProductForm = ({ parentRef }) => {
 
 		setProduct({...product, [e.target.name]: e.target.value, })
 	};
-
-	useEffect(() => {
-		const getProduct = async (id) => {
-			const { data: product } = await axios.get("/api/produtos/" + id);
-			setProduct(product);
-		};
-
-		if (router.query.id) {
-			getProduct(router.query.id);
-		}
-	}, []);
 
 	return (
 		<div>

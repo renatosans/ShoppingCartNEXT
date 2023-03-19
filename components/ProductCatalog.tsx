@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDom from 'react-dom/client';
 import InfoModal from './InfoModal';
+import { productType, shoppingCartType } from '../utils/types';
 
 
-export default function ProductCatalog({ produto = null, shoppingCart = null }) {
+type props = {
+	produto: productType | null;
+	shoppingCart: shoppingCartType | null;
+}
+
+export default function ProductCatalog({ produto = null, shoppingCart = null }: React.PropsWithChildren<props>) {
     function addToCart(){
         const root = ReactDom.createRoot(document.getElementById('container'));
 

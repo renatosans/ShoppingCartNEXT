@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDom from 'react-dom/client';
 import NumberSpinner from './NumberSpinner';
 import ConfirmationDialog from './ConfirmationDialog';
 import { productType, shoppingCartType, itemListType } from '../utils/types';
@@ -12,7 +12,7 @@ type props = {
 
 export default function CartItem({ produto = null, shoppingCart = null, parentRef }: React.PropsWithChildren<props>) {
 	function remover(){
-        const root = ReactDom.createRoot(document.getElementById('container'));
+        const root = ReactDom.createRoot(document.getElementById('container') as HTMLElement);
 
 		if (shoppingCart == null) {
 			alert('Falha ao abrir carrinho de compras');
@@ -24,7 +24,7 @@ export default function CartItem({ produto = null, shoppingCart = null, parentRe
 		root.render(confirmationDialog);
 	}
 
-	const handleResult = (result) => {
+	const handleResult = (result: boolean) => {
 		if (result) {
 			let carrinho = shoppingCart.produtosAdicionados;
 			shoppingCart.produtosAdicionados = carrinho.filter( item => item.id !== produto.id );

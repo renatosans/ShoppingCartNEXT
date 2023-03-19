@@ -2,9 +2,15 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import NumberSpinner from './NumberSpinner';
 import ConfirmationDialog from './ConfirmationDialog';
+import { productType, shoppingCartType, itemListType } from '../utils/types';
 
+type props = {
+	produto: productType | null;
+	shoppingCart: shoppingCartType | null;
+	parentRef: itemListType;
+}
 
-export default function CartItem({ produto = null, shoppingCart = null, parentRef }) {
+export default function CartItem({ produto = null, shoppingCart = null, parentRef }: React.PropsWithChildren<props>) {
 	function remover(){
         const root = ReactDom.createRoot(document.getElementById('container'));
 

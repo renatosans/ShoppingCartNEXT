@@ -1,4 +1,8 @@
 
+export type itemListType = {
+    getItems: () => void;
+}
+
 export type categoryType = {
     nome: string;
 }
@@ -14,7 +18,7 @@ export type supplierType = {
     email: string;
 }
 
-type productType = {
+export type productType = {
     nome: string;
     preco: number;
     descricao: string;
@@ -22,7 +26,7 @@ type productType = {
     formatoImagem: string;
 }
 
-type shoppingCartType = {
+export type shoppingCartType = {
     cliente: string;
     total: number;
     produtosAdicionados: [];

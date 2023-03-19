@@ -4,7 +4,14 @@ import { notification } from "../utils/notification";
 import toast, { Toaster, ToastOptions } from "react-hot-toast";
 
 
-export const ProductForm = ({ parentRef }) => {
+type props = {
+    parentRef: {
+        closeForm: () => void;
+        getCatalogo: () => void;	
+	}
+}
+
+export const ProductForm = ({ parentRef }: React.PropsWithChildren<props>) => {
 	const router = useRouter();
 
 	const [product, setProduct] = useState({
@@ -36,7 +43,8 @@ export const ProductForm = ({ parentRef }) => {
 					body: JSON.stringify(product), })
 			}
 		} catch (error) {
-			toast.error(error.message, notification.options as ToastOptions);
+			const lastError = error as Error;
+			toast.error(lastError.message, notification.options as ToastOptions);
 			return;
 		}
 

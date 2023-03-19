@@ -4,21 +4,25 @@ export type itemListType = {
 }
 
 export type categoryType = {
+    id?: number;
     nome: string;
 }
 
 export type measurementUnityType = {
+    id?: number;
     descricao: string;
     sigla: string;
 }
 
 export type supplierType = {
+    id?: number;
     cnpj: string;
     nome: string;
     email: string;
 }
 
 export type productType = {
+    id?: number;
     nome: string;
     preco: number;
     descricao: string;
@@ -29,5 +33,5 @@ export type productType = {
 export type shoppingCartType = {
     cliente: string;
     total: number;
-    produtosAdicionados: [];
+    produtosAdicionados: productType[];
 }

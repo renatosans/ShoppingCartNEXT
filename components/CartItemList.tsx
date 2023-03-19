@@ -1,8 +1,13 @@
 import CartItem from './CartItem';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { shoppingCartType } from '../utils/types';
 
 
-export const CartItemList = ({ carrinho }) => {
+type props = {
+    carrinho : shoppingCartType;
+}
+
+export const CartItemList = ({ carrinho }: React.PropsWithChildren<props>) => {
     const [products, setProducts] = useState([]);
 
     const getItems = () => {

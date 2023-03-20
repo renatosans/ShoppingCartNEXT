@@ -42,5 +42,10 @@ export const allSuppliers: supplierType[] = [
 		cnpj: '05.570.714/0001-59',
 		nome: 'Kabum Comércio Eletrônico',
 		email: 'faleconosco@kabum.com.br'
+	},
+	{
+		cnpj: '09.339.936/0001-16',
+		nome: 'Netshoes Comércio Eletrônico',
+		email: 'sac@netshoes.com.br'
 	}
 ]

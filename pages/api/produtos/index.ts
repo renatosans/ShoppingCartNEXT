@@ -1,14 +1,7 @@
 import { prisma } from '../../../utils/connection'
+import type { productType } from '../../../utils/types'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-
-type productType = {
-    nome: string;
-    preco: number;
-    descricao: string;
-    foto: string;
-    formatoImagem: string;
-}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<productType | string>) {
 	switch (req.method) {

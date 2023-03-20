@@ -1,5 +1,6 @@
 import Draggable from 'react-draggable';
 import { useState, useEffect } from 'react';
+import { productType, shoppingCartType } from '../utils/types';
 import styles from '../styles/Home.module.css';
 import { Button, Drawer, Dialog } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
@@ -10,8 +11,8 @@ import ProductCatalog from '../components/ProductCatalog';
 
 
 export default function Home() {
-  const [dadosProdutos, setDadosProdutos] = useState();
-  const [carrinho, setCarrinho] = useState();
+  const [dadosProdutos, setDadosProdutos] = useState<productType[]>();
+  const [carrinho, setCarrinho] = useState<shoppingCartType>();
 
   const getCatalogo = async () => {
     const response = await fetch("api/produtos")
@@ -58,7 +59,7 @@ export default function Home() {
         <main className={styles.main}>
             <div className={styles.grid}>{
                 dadosProdutos &&
-                dadosProdutos.map((produto) => (<div className={styles.card} key={produto.id}>
+                dadosProdutos.map((produto: productType) => (<div className={styles.card} key={produto.id}>
                     <ProductCatalog produto={produto} shoppingCart={carrinho}></ProductCatalog>
                 </div>))
             }</div>

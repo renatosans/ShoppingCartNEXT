@@ -61,7 +61,8 @@ export const ProductForm = ({ parentRef }: React.PropsWithChildren<props>) => {
 			// Reads the file using the FileReader API
 			const reader = new FileReader();
 			reader.onloadend = () => {
-				const fileData = reader.result.split(';base64,');
+				const result = reader.result as string;
+				const fileData = result.split(';base64,');
 				let formato = fileData[0].replace('data:', '') + ';base64'
 				setProduct({...product, 'foto': fileData[1], 'formatoImagem': formato, })
 			}

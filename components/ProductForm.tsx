@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
-import { useState, FormEvent } from 'react';
-import { notification } from "../utils/notification";
-import toast, { Toaster, ToastOptions } from "react-hot-toast";
+import { useRouter } from 'next/router'
+import { useState, useEffect, FormEvent } from 'react'
+import { notification } from '../utils/notification'
+import toast, { Toaster, ToastOptions } from 'react-hot-toast'
 
 
 type props = {
@@ -16,7 +16,7 @@ export const ProductForm = ({ parentRef }: React.PropsWithChildren<props>) => {
 
 	const [product, setProduct] = useState({
 		nome: "",
-		preco: "",
+		preco: "",   // Bug found while saving product (Value exceeds valid range of column)
 		descricao: "",
 		foto: "",
 		formatoImagem: "",
@@ -55,7 +55,6 @@ export const ProductForm = ({ parentRef }: React.PropsWithChildren<props>) => {
 	}
 
 	const onChange = (e: any) => {
-
 		if (e.target.type === 'file') {
 			const file = e.target.files[0];
 			// Reads the file using the FileReader API
